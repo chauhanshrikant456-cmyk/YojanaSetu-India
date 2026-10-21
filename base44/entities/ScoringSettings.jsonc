@@ -1,0 +1,55 @@
+{
+  "name": "ScoringSettings",
+  "type": "object",
+  "properties": {
+    "eligibility_weight": {
+      "type": "number",
+      "default": 30
+    },
+    "document_weight": {
+      "type": "number",
+      "default": 30
+    },
+    "dependency_weight": {
+      "type": "number",
+      "default": 25
+    },
+    "profile_weight": {
+      "type": "number",
+      "default": 15
+    },
+    "ready_threshold": {
+      "type": "number",
+      "default": 80
+    },
+    "preparation_threshold": {
+      "type": "number",
+      "default": 50
+    },
+    "pending_document_credit": {
+      "type": "number",
+      "default": 0.6
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

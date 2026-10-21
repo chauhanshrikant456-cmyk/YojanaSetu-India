@@ -1,0 +1,102 @@
+{
+  "name": "EligibilityRule",
+  "type": "object",
+  "properties": {
+    "opportunity_id": {
+      "type": "string"
+    },
+    "opportunity_title": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string",
+      "enum": [
+        "annualFamilyIncome",
+        "marksPercentage",
+        "state",
+        "domicileState",
+        "educationLevel",
+        "category",
+        "gender",
+        "course",
+        "currentStudyYear",
+        "age",
+        "disabilityStatus",
+        "entranceExamScore",
+        "passingYear"
+      ]
+    },
+    "operator": {
+      "type": "string",
+      "enum": [
+        "eq",
+        "ne",
+        "lt",
+        "lte",
+        "gt",
+        "gte",
+        "between",
+        "in",
+        "not_in",
+        "exists",
+        "regex"
+      ]
+    },
+    "value": {
+      "type": "string"
+    },
+    "value2": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "AND",
+        "OR"
+      ],
+      "default": "AND"
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "sort_order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "opportunity_id",
+    "field",
+    "operator",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

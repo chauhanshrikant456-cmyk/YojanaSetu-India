@@ -1,0 +1,74 @@
+{
+  "name": "ReadinessSnapshot",
+  "type": "object",
+  "properties": {
+    "overall_score": {
+      "type": "number"
+    },
+    "eligibility_points": {
+      "type": "number"
+    },
+    "document_points": {
+      "type": "number"
+    },
+    "dependency_points": {
+      "type": "number"
+    },
+    "profile_points": {
+      "type": "number"
+    },
+    "status_label": {
+      "type": "string"
+    },
+    "eligibility_status": {
+      "type": "string"
+    },
+    "blocker_count": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "overall_score"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

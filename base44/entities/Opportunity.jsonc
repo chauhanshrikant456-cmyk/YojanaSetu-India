@@ -1,0 +1,140 @@
+{
+  "name": "Opportunity",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "scholarship",
+        "admission",
+        "examination",
+        "certification",
+        "fellowship"
+      ],
+      "default": "scholarship"
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string",
+      "default": "All India"
+    },
+    "state": {
+      "type": "string"
+    },
+    "education_level": {
+      "type": "string",
+      "enum": [
+        "class_10",
+        "class_12",
+        "undergraduate",
+        "postgraduate",
+        "phd",
+        "diploma",
+        "iti",
+        "any"
+      ],
+      "default": "any"
+    },
+    "eligible_courses": {
+      "type": "string"
+    },
+    "eligibility_summary": {
+      "type": "string"
+    },
+    "exclusion_rules": {
+      "type": "string"
+    },
+    "benefits": {
+      "type": "string"
+    },
+    "application_fee": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "domicile_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "required_documents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "official_notification_url": {
+      "type": "string"
+    },
+    "official_application_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "closing_soon",
+        "closed",
+        "archived",
+        "needs_verification"
+      ],
+      "default": "draft"
+    },
+    "academic_year": {
+      "type": "string"
+    },
+    "application_open_date": {
+      "type": "string"
+    },
+    "application_deadline": {
+      "type": "string"
+    },
+    "exam_date": {
+      "type": "string"
+    },
+    "source_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "last_verified_date": {
+      "type": "string"
+    },
+    "data_note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

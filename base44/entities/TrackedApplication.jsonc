@@ -1,0 +1,76 @@
+{
+  "name": "TrackedApplication",
+  "type": "object",
+  "properties": {
+    "opportunity_id": {
+      "type": "string"
+    },
+    "opportunity_title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "interested",
+        "preparing_documents",
+        "ready_to_apply",
+        "applied",
+        "under_review",
+        "approved",
+        "rejected",
+        "withdrawn"
+      ],
+      "default": "interested"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status_updated_date": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "opportunity_id"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

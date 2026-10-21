@@ -1,0 +1,47 @@
+{
+  "name": "DependencyEdge",
+  "type": "object",
+  "properties": {
+    "from_code": {
+      "type": "string"
+    },
+    "to_code": {
+      "type": "string"
+    },
+    "from_name": {
+      "type": "string"
+    },
+    "to_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "from_code",
+    "to_code"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
